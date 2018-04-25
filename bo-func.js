@@ -110,6 +110,42 @@ const drawPaddle = () => {
 //running the game.  Calling functions, moving ball. 
 
 let draw = () => {
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height); //clears the canvas, to allow new position of ball. 
+    drawBricks(); //Adds bricks
+    drawBall(); //draws ball
+    drawPaddle(); //draws paddle
+    drawScore(); //displays score
+    drawLives(); //Lives
+    collisionDectection(); //calls collision func
+    
+
+    if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+        dx = -dx
+    } //cause side bounce
+    
+    if (y + dy < ballRadius) {
+        dy = -dy; //cause bounce top
+    } else if (y + dy > canvas.height - ballRadius) {
+        if (x > paddleX && x < paddleX + paddleWidth) {
+            dy = -dy; //cause bounce off paddle
+        } 
+        else {
+            lives--; //subtracts a life
+            if (!lives) {
+                alert("Game Over!");
+                document.location.reload();
+            } //no lives left Game over.
+            else {
+                x = canvas.width / 2;
+                y = canvas.height - 30;
+                dx = 2;
+                dy = -2;
+                paddleX = (canvas.width - paddleWidth) / 2;
+            }
+
+        }
+
   if (gamePaused) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height); //clears the canvas, to allow new position of ball.
   drawBricks(); //Adds bricks
@@ -143,6 +179,7 @@ let draw = () => {
         dy = -2;
         paddleX = (canvas.width - paddleWidth) / 2;
       }
+
 
     }
 
@@ -229,5 +266,3 @@ let drawLives = () => {
 //speed of the ball/refresh
 
 intervalHandle = setInterval(draw, 10);
-
-

@@ -108,7 +108,6 @@ const drawPaddle = () => {
 
 let draw = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height); //clears the canvas, to allow new position of ball. 
-    pauseGame();
     drawBricks(); //Adds bricks
     drawBall(); //draws ball
     drawPaddle(); //draws paddle

@@ -266,5 +266,3 @@ let drawLives = () => {
 //speed of the ball/refresh
 
 intervalHandle = setInterval(draw, 10);
-
-

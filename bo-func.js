@@ -110,7 +110,7 @@ const drawPaddle = () => {
 //running the game.  Calling functions, moving ball. 
 
 let draw = () => {
-<<<<<<< HEAD
+
     ctx.clearRect(0, 0, canvas.width, canvas.height); //clears the canvas, to allow new position of ball. 
     drawBricks(); //Adds bricks
     drawBall(); //draws ball
@@ -145,7 +145,7 @@ let draw = () => {
             }
 
         }
-=======
+
   if (gamePaused) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height); //clears the canvas, to allow new position of ball.
   drawBricks(); //Adds bricks
@@ -179,7 +179,7 @@ let draw = () => {
         dy = -2;
         paddleX = (canvas.width - paddleWidth) / 2;
       }
->>>>>>> bea8a09b30a2d8c57b6c2df4d66150c232d7ce8b
+
 
     }
 
